@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-item{
+    height: 7rem;
+    width: 7rem;
+    border-radius: 5rem;
+    border-color:black;
+    border-style:inset;
+    border-width: 2px;
+   
+
+}
+
+.custom-input {
+    padding: 8px; /* Adjust the padding as needed */
+    border: 1px solid slategray; /* Change the border color to slate */
+    border: 3px;
+    margin: 2px;
+  }
+
+  /* Add this to your CSS file */
+.active-nav-item {
+    background-color: white;
+    border-color: blue;
+  }
+  
