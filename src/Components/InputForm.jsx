@@ -86,12 +86,18 @@ function InputForm() {
           <div className='flex flex-wrap w-full m-3 p-10'>
             <Input1 type="select" label="Firm Name" placeholder="Type Here" selectOptions={['Option 1', 'Option 2', 'Option 3']} />
             <Input1 type="text" label="Booking Contact Name" placeholder="Type Here" />
+            <Input1 type="text" label="Phone Number" placeholder="Type Here" />
+           <Input1 type="text" label="Billing Address" placeholder="Type Here" />
+           <Input1 type="text" label="Zip/Postal Code" placeholder="Type Here" />
+           <Input1 type="text" label="Country/ City" placeholder="Type Here" />
             {/* ... (Other Input1 fields) */}
           </div>
           <div className='flex flex-wrap w-full justify-center p-10'>
             <Input2 type="select" label="Role" placeholder="Type Here" selectOptions={['Option 1', 'Option 2', 'Option 3']} />
             <Input2 type="text" label="Name Of Represented Client" placeholder="Type Here" />
             {/* ... (Other Input2 fields) */}
+            <Input2 type="text" label="Lead Counsels Information" placeholder="Type Here" />
+              <Input2 type="text" label="Email" placeholder="Email" /> 
           </div>
           
   
