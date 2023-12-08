@@ -7,7 +7,7 @@ import Input2 from './Input2.jsx';
 function InputForm() {
   const [isDisplay1Visible, setIsDisplay1Visible] = useState(false);
   const [isDisplay2Visible, setIsDisplay2Visible] = useState(false);
-  const [showAdditionalParties, setShowAdditionalParties] = useState(false);
+ 
 
   const toggleDisplay1 = () => {
     setIsDisplay1Visible(!isDisplay1Visible);
@@ -16,10 +16,24 @@ function InputForm() {
   const toggleDisplay2 = () => {
     setIsDisplay2Visible(!isDisplay2Visible);
   };
-  const openNewDiv = () => {
-    setShowAdditionalParties(!showAdditionalParties);
+
+  const [additionalParties, setAdditionalParties] = useState([]);
+
+  const togglePartyDiv = (index) => {
+    const updatedParties = [...additionalParties];
+    updatedParties[index] = { ...updatedParties[index], show: !updatedParties[index]?.show };
+    setAdditionalParties(updatedParties);
   };
 
+  const addNewParty = () => {
+    setAdditionalParties([...additionalParties, { show: true }]);
+  };
+
+  const handleButtonAction = () => {
+    // Perform the common functionality for the buttons
+    console.log('Button clicked!');
+  };
+  
   return (
     <>
       <div className='m-3 p-5'>
@@ -80,31 +94,31 @@ function InputForm() {
           </div>
         )}
       </div>
-      
-          {showAdditionalParties && (
-        <div className='display2'>
-          <div className='flex flex-wrap w-full m-3 p-10'>
-            <Input1 type="select" label="Firm Name" placeholder="Type Here" selectOptions={['Option 1', 'Option 2', 'Option 3']} />
-            <Input1 type="text" label="Booking Contact Name" placeholder="Type Here" />
-            <Input1 type="text" label="Phone Number" placeholder="Type Here" />
+      {additionalParties.map((party, index) => (
+        
+        <div key={index} className={party.show ? 'display2' : 'hidden'}>
+           <button className='p-5 bg-black text-white font-semibold m-10' onClick={() => togglePartyDiv(index)}>
+            {party.show ? ' X Additional Party' : '+ Additional Party'}
+          </button>
+          <div className='flex flex-wrap max-w-full m-3 p-10'>
+              <Input1 type="select" label="Firm Name" placeholder="Type Here" selectOptions={['Option 1', 'Option 2', 'Option 3']} />
+              <Input1 type="text" label="Booking Contact Name" placeholder="Type Here" />
+           <Input1 type="text" label="Phone Number" placeholder="Type Here" />
            <Input1 type="text" label="Billing Address" placeholder="Type Here" />
            <Input1 type="text" label="Zip/Postal Code" placeholder="Type Here" />
            <Input1 type="text" label="Country/ City" placeholder="Type Here" />
-            {/* ... (Other Input1 fields) */}
-          </div>
-          <div className='flex flex-wrap w-full justify-center p-10'>
-            <Input2 type="select" label="Role" placeholder="Type Here" selectOptions={['Option 1', 'Option 2', 'Option 3']} />
-            <Input2 type="text" label="Name Of Represented Client" placeholder="Type Here" />
-            {/* ... (Other Input2 fields) */}
-            <Input2 type="text" label="Lead Counsels Information" placeholder="Type Here" />
+            </div>
+            <div className='flex flex-wrap w-full justify-center p-10'>
+              <Input2 type="select" label="Role" placeholder="Type Here" selectOptions={['Option 1', 'Option 2', 'Option 3']} />
+              <Input2 type="text" label="Name Of Represented Client" placeholder="Type Here" />
+              <Input2 type="text" label="Lead Counsels Information" placeholder="Type Here" />
               <Input2 type="text" label="Email" placeholder="Email" /> 
-          </div>
-          
-  
+            </div>
+         
         </div>
-      )}
+      ))}
 
-      <button className='p-5 bg-black text-white font-semibold m-10' onClick={openNewDiv}>
+      <button className='p-5 bg-black text-white font-semibold m-10' onClick={addNewParty}>
         + Additional Parties
       </button>
     </>

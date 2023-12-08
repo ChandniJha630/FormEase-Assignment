@@ -14,7 +14,7 @@ const router=createBrowserRouter([
         path:'path1',
         element:(
           <>
-     <h1 className='text-9xl m-10 p-10 font-sans font-semibold'> Page 1 will load here</h1>
+     <h1 className='text-2xl m-10 p-10 font-sans font-semibold'> Page 1 will load here Currently Page 2 is made</h1>
           </>
         ),
       },
@@ -30,7 +30,7 @@ const router=createBrowserRouter([
         path:'path3',
         element:(
           <>
-        <h1 className='text-9xl m-10 p-10 font-sans font-semibold'> Page 3 will load here</h1>
+        <h1 className='text-2xl m-10 p-10 font-sans font-semibold'> Page 3 will load here currently page 2 is made</h1>
           </>
         ),
       },
@@ -38,7 +38,7 @@ const router=createBrowserRouter([
         path:'path4',
         element:(
           <>
-         <h1 className='text-9xl m-10 p-10 font-sans font-semibold'> Page 4 will load here</h1>
+         <h1 className='text-9xl m-10 p-10 font-sans font-semibold'> Page 4 will load here currently page 2 is made</h1>
           </>
         ),
       },
